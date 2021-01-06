@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+		body{
+			position:relative;
+			width: 100%;
+			height: 2000px;
+			background: url(img/九宫格_05.jpg)no-repeat ;
+			background-size:100% 2000px;
+			overflow: scroll;
+		}
+		.obox1 img{
+			position: absolute;
+			width: 100%;
+			height: 350px;
+		}
+		.jp{
+			position: absolute;
+			width: 600px;
+			height: 100px;
+			background: url(img/4.png)no-repeat;
+			background-size:600px 100px;
+			top:1150px;
+			left: 200px;
+			line-height: 95px;
+			border-radius:20px;
+		}
+		a{
+			color: black;
+			text-decoration: none;
+		}
+		.jp p{
+			margin-left: 150px;
+			font-size: 80px;
+		}
+		.cj{
+			position: absolute;
+			width: 700px;
+			height: 700px;
+			top: 400px;
+			left: 140px;
+			background: white;
+		}
+		.lbt{
+			position: absolute;
+			width: 700px;
+			height: 400px;
+			top: 1300px;
+			left: 140px;
+			background:white;
+			border: solid 10px red;
+		}
+		.lbt div:first-child{
+			width: 100%;
+			height: 100px;
+		}
+		.hm{
+			width: 100%;
+			height: 300px;
+			overflow: hidden;
+		}
+		.lbt span{
+			color: red;
+			font-size: 80px;
+			background: white;
+		}
+		.lbt li{
+			list-style: none;
+			text-align: center;
+			font-size: 42px;
+			line-height: 80px;
+		}
+		.bq{
+			position: absolute;
+			width: 700px;
+			height: 100px;
+			top: 300px;
+			left: 150px;
+			font-size: 50px;
+			line-height: 100px;
+		}
+		.bq span{
+			margin-left:60px ;
+			color: yellow;
+		}
+		.cj table{
+			width: 700px;
+			height: 700px;
+			border: solid 5px red;
+			background: white;
+		}
+		.cj img{
+			width: 200px;
+			height: 200px;
+			margin-top: -100px;
+			margin-left: 15px;
+			position: absolute;
+		}
+		.zzc{
+				position: fixed;
+				top: 0px;
+				left: 0px;
+				right: 0px;
+				bottom: 0px;
+				background: rgba(0,0,0,0.5);
+				display: none;
+			}
+		.hdgz{
+			position: fixed;
+			width:600px;
+			height:500px;
+			overflow: auto;
+			background: white;
+			text-align: center;
+			margin: 500px 20%;
+			font-size:40px ;
+			line-height: 70px;
+		}
+		.gz{
+				position:fixed;
+				font-size:60px ;
+				background:white;
+				width: 602px;
+				height: 80px;
+				margin-top:420px;
+				margin-left: 20%;
+				text-align: center;
+				border-top-left-radius:10%;
+				border-top-right-radius:10%;
+			}
+		.qd{
+				position:fixed;
+				font-size:60px ;
+				background:white;
+				width: 602px;
+				height: 80px;
+				margin-top:1000px;
+				margin-left: 20%;
+				text-align: center;
+				border-top:solid 10px #ccc;
+				border-bottom-left-radius:10%;
+				border-bottom-right-radius:10%;
+		}
+		ul{
+			list-style: none;
+		}
+		.zzc2{
+				position: fixed;
+				top: 0px;
+				left: 0px;
+				right: 0px;
+				bottom: 0px;
+				background: rgba(0,0,0,0.5);
+				display: none;
+			}
+		.zzc2 div{
+			width:700px;
+			height: 500px;
+			background: white;
+			margin: 300px auto;
+			font-size: 50px;
+			padding: 50px;
+			border-top-left-radius:20px ;
+			border-top-right-radius:20px ;
+		}
+		.zzc2 p{
+			margin-top:30px ;
+			line-height: 80px;
+			
+		}
+		.zzc2 span{
+			line-height: 40px;
+			color: red;
+			font-size:30px ;
+			margin-top:0px;
+			position: absolute;
+		}
+		.zzc2 input{
+			font-size:40px;
+			padding:20px;
+			border-radius:10px;
+			border: solid 3px #CCCCCC;
+			margin-left: 40px;
+			width: 550px;
+		}
+		h3{
+			text-align: center;
+		}
+		.qd2{
+			width: 400px;
+			height: 100px;
+			margin-left: 90px;
+			margin-top: -300px;
+			position: absolute;
+			border:solid 3px #CCCCCC ;
+			background: white;
+			font-size: 50px;
+			border-bottom-left-radius:20px ;
+		}
+		.qx{
+			width: 400px;
+			height: 100px;
+			margin-left: 490px;
+			margin-top: -300px;
+			position: absolute;
+			border:solid 3px #CCCCCC ;
+			background: white;
+			font-size: 50px;
+			border-bottom-right-radius:20px ;
+		}
+		.zzc3{
+				position: fixed;
+				top: 0px;
+				left: 0px;
+				right: 0px;
+				bottom: 0px;
+				background: rgba(0,0,0,0.5);
+				display: none;
+			}
+		.db{
+			margin:300px 140px;
+			width: 700px;
+			height: 500px;
+			font-size: 40px;
+			text-align: center;
+			background: white;
+			border-top-left-radius:20px ;
+			border-top-right-radius:20px ;
+			padding: 20px;
+			line-height: 48px;
+		}
+		.db li:nth-child(2){
+			color: red;
+		}
+		.db li:nth-child(4){
+			margin-top: 20px;
+		}
+		.db li:nth-child(3){
+			width: 600px;
+			height: 150px;
+			margin-left: 50px;
+			border: solid 2px #CCCCCC;
+		}
+		.db img{
+			height: 150px;
+		}
+		.zzc3 button{
+			position: absolute;
+			width:740px;
+			border:solid 4px #CCCCCC ;
+			background:white;
+			font-size: 40px;
+			height: 100px;
+			margin-top: -300px;
+			margin-left: 140px;
+			border-bottom-left-radius:20px;
+			border-bottom-right-radius:20px;
+		}
+	</style>
+	<script src="js/jquery-1.12.0.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			var n=0;
+			$("span").eq(1).click(function(){
+				$(".zzc").show();
+			});
+			$(".qd").click(function(){
+				$(".zzc").hide();
+			});
+			setInterval(function(){
+				if(n<=-320){
+					n=0;
+					$(".hm ul").css("margin-top",n+"px");
+					n--;
+				}else{
+					$(".hm ul").css("margin-top",n+"px");
+					n--;
+				}
+			},10);
+			$(".jp").click(function(){
+				$(".zzc2").show();
+			});
+			$(".qx").click(function(){
+				$(".zzc2").hide();
+			});
+			$(".qd2").click(function(){
+				if($(".zzc2 input").eq(0).val()=="admin"&&$(".zzc2 input").eq(1).val()=="admin")
+				{
+					window.location.href = "index3.html";
+				}else{
+					alert("姓名或手机号不正确");
+				}
+			});
+			var p=3;
+			$(".kscj").click(function(){
+				p=p-1;
+				var a=[0,1,2,5,8,7,6,3];
+				var b=0;
+			var db=setInterval(function(){
+				if(b>7){
+					b=0;
+				}
+				setTimeout(function(){
+					if(b=2){
+						clearInterval(db);
+					}
+				},2600);
+				if(b>0){
+					$(".cj img").eq(a[b-1]).css("border","none");
+				}
+				$(".cj img").eq(a[7]).css("border","none");
+				$(".cj img").eq(a[b]).css("border","solid 5px aqua");
+				b++;
+			},100)
+			var sb=setTimeout(function(){
+					$(".zzc3").show();
+				},3000);
+				if(p<0){
+					p=0;
+					$(".kscj").unbind();
+					alert("抽奖次数为0");
+					clearTimeout(sb);
+					clearInterval(db);
+				}
+				$(".bq span").eq(0).html("抽奖次数:"+p+"次");
+			});
+			if(p==0){
+					
+				}
+			$(".zzc3 button").click(function(){
+				$(".zzc3").hide();
+			})
+		})
+	</script>
+	<body>
+			<div class="obox1">
+				<img src="img/九宫格_02.jpg"/>
+			</div>
+			<div class="obox2">
+				<div class="bq">
+					<span>抽奖次数:3次</span><span>游戏规则</span>
+				</div>
+				<div class="cj">
+					<table width="210">
+						  <tr>
+						    <td><img src="img/sudoku_01.jpg" class="c1"/></td>
+						    <td><img src="img/sudoku_02.jpg"/></td>
+						    <td><img src="img/sudoku_03.jpg"/></td>
+						  </tr>
+						  <tr>
+						    <td><img src="img/sudoku_09.jpg"/></td>
+						    <td class="kscj"><img src="img/sudoku_05.jpg"/></td>
+						    <td><img src="img/sudoku_04.jpg"/></td>
+						  </tr>
+						  <tr>
+						    <td><img src="img/sudoku_06.jpg"/></td>
+						    <td><img src="img/sudoku_07.jpg"/></td>
+						    <td><img src="img/sudoku_08.jpg"/></td>
+						  </tr>
+					</table>
+				</div>
+				<div class="jp">
+					<p>我的奖品</p>
+				</div>
+				<div class="lbt">
+					<div>
+						<span>已发出的奖品:</span>
+					</div>
+					<div class="hm">
+						<ul class="sb">
+							<li>147****9545 获得黄封村人参酒两瓶</li>
+							<li>137****9545 获得中国联通流量卡</li>
+							<li>157****9545 获得陶进二胡工作室</li>
+							<li>156****9545 获得蛋壳科技VR体验卡</li>
+							<li>147****9545 获得黄封村人参酒两瓶</li>
+							<li>137****9545 获得中国联通流量卡</li>
+							<li>157****9545 获得陶进二胡工作室</li>
+							<li>156****9545 获得蛋壳科技VR体验卡</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="zzc">
+				<div class="gz">
+					游戏规则
+				</div>
+				<div class="hdgz">
+					<ul class="list">
+						<li>1. 每名客户每天抽奖有3次机会，点击转盘的【开始抽奖】按钮进行抽奖，转动结束停留的位置就是您获得的奖品；</li>
+						<li>2. 中奖后需填写姓名、电话，兑奖时根据您的填写的信息进行现场兑奖，具体奖项如下：
+
+								黄封村人参酒两瓶：共100份，总价值12000元
+								
+								莱沃口腔储值卡：共50份，总价值10000元
+								
+								中国联通流量卡：共200份，总价值10000元
+								
+								S5健身俱乐部贵宾卡：共有80份，总价值8000元
+								
+								圣雅瑜伽SPA会所储值卡：共3份，总价值6000元
+								
+								陶进二胡工作室：共20份，总价值6000元
+								
+								蛋壳科技VR体验卡：共50份，总价值2500元
+						</li>
+						<li>3. 抽奖时间：
+
+								2021年1月1日~3日游戏时间：每天10：00~23：59：59
+						</li>
+						<li>
+							4. 各奖品兑奖方式及时间不同，具体如下：
+							<ul class="list1">
+								<li>
+									1) 黄封村人参酒
+									
+									兑奖时间：截止到2021年2月26日
+									
+									兑奖地址：吉林省酒文化博物馆（亚泰大街9699号）
+									
+									联系电话：0431-88508899
+								</li>
+								<li>
+									2) 莱沃口腔储值卡
+									
+									兑奖时间：截止到2021年2月31日
+									
+									兑奖地址：工农大路1780号（省中医院东侧）
+									
+									联系电话：0431—89545888
+									
+									注：洗牙4次（不限本人使用）；口腔体检；
+								</li>
+								<li>
+									
+									3) 中国联通流量卡
+									
+									兑奖时间：截止到2021年3月1日
+									
+									兑奖地址：长春市内联通营业厅登记统一存入
+									
+									联系电话：无
+									
+									注：2G/3G用户500M流量；4G用户1G流量;异地号码，非正常在用号码、已有相同流量包、融合套餐等不能使用
+								</li>
+								<li>
+									4) S5健身俱乐部贵宾卡
+									
+									兑奖时间：截止到2021年4月30日
+									
+									兑奖地址：
+									
+									南关区幸福街与蔚山路交会处绿地中央广场盘古家宴旁
+									
+									高新区荷园路与华光街交会处东行50米安联国际
+									
+									绿园区景阳大路与春城大街交会处北行150米
+									
+									联系电话：
+									
+									0431—81887555；
+									
+									0431—80811555；
+									
+									0431—88006122
+									
+									注：3店通用；单天无时间限制，器材限制使用；
+								</li>
+								<li>
+									5) 圣雅瑜伽SPA会所储值卡
+									
+									兑奖时间：截止到2021年7月1日
+									
+									兑奖地址：飞跃东路林田创客公园D栋2楼彩练新闻
+									
+									联系电话：13943017772
+									
+									注：每人限用1张；不含服装、垫子等费用；
+								</li>
+								<li>
+									6) 陶进二胡工作室
+									
+									兑奖时间：截止到2021年12月31日
+									
+									兑奖地址：飞跃东路林田创客公园D栋2楼彩练新闻
+									
+									联系电话：13943017772
+									
+									注：学习二胡免一次课时费；
+								</li>
+								<li>
+									7) 蛋壳科技VR体验卡
+									
+									兑奖时间：截止到2021年7月1日
+									
+									兑奖地址：
+									
+									同志街与同光路交会处联通营业厅；
+									
+									联通营业厅前进大街店；
+									
+									联系电话：无
+									
+									注意：VR互动实战体验一次
+									
+									活动最终解释权归彩练新闻所有。
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="qd">
+					确定
+				</div>
+			</div>
+			<div class="zzc2">
+				<div>
+					<h3>输入信息</h3>
+					
+					<p>姓名:</p>
+					 <input placeholder="请输入你的真实姓名"/><br />
+					 <span>姓名不能为空(提示:admin)</span>
+					 <p>手机号:</p>
+					 <input placeholder="请输入你的电话号码"/><br />
+					 <span>手机号不能为空(提示:admin)</span><br />
+				</div>
+					<button class="qd2">确定</button>
+					<button class="qx">取消</button>
+			</div>
+			<div class="zzc3">
+				<div class="db">
+					<ul>
+						<li>提示</li>
+						<li>恭喜您,中奖了</li>
+						<li>
+							<img src="img/sudoku_03.jpg" />
+						</li>
+						<li>中国联通流量卡50元</li>
+						<li>兑奖地址:长春市内联通营业厅登记统一存入</li>
+						<li>注:异地号码，非正常在用号码、已有相同流量包、融合套餐等不能使用</li>
+					</ul>
+				</div>
+				<button>
+					确定
+				</button>
+			</div>
+	</body>
+</html>
