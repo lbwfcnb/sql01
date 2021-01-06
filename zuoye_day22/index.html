@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.obox{
+			border: solid 1px black;
+			width: 430px;
+			height: 430px;
+			float: left;
+			position: absolute;
+			margin: 20px 20px;
+			overflow: hidden;
+		}
+		.obox1{
+			margin-top:20px;
+			border: solid 1px black;
+			width: 430px;
+			height: 430px;
+			position:absolute;
+			float: left;
+			margin: 20px 480px;
+			display: none;
+			overflow: hidden;
+		}
+		.box{
+			position: relative;
+			border: solid 1px black;
+			width: 100px;
+			height: 100px;
+			float: left;
+			top:450px;
+			margin: 20px 5px;
+			left: 15px;
+		}
+		img{
+			width: 100%;
+			
+		}
+		.box:hover{
+			border: solid 1px red;
+		}
+		.zz{
+			position: absolute;
+			width: 150px;
+			top: 0;
+			left: 0;
+			opacity: 0.5;
+			z-index: 1;
+			display: none;
+		}
+		.obox1 .sb{
+			width: 1234px;
+		}
+	</style>
+	<script src="js/jquery-1.12.0.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			var n;
+			$(".obox").mousemove(function(e){
+				var x = e.clientX;
+				var y = e.clientY;
+				if(x<=95){
+					x=95;
+				}
+				if(y<=95){
+					y=95;
+				}
+				if(x>=375){
+					x=375;
+				}
+				if(y>=375){
+					y=375;
+				}
+				$(".zz").css("top",y-95);
+				$(".zz").css("left",x-95);
+				var rx = ((x-95)/430)*1234*-1;
+				var ry = ((y-95)/430)*1234*-1;
+				$(".obox1 .sb").css("margin-left",rx);
+				$(".obox1 .sb").css("margin-top",ry);
+			});
+			$(".obox").mouseenter(function(){
+				$(".zz").css("display","block");
+				$(".obox1").css("display","block");
+			});
+			$(".obox").mouseleave(function(){
+				$(".zz").css("display","none");
+				$(".obox1").css("display","none");
+			});
+			$(".box").mouseenter(function(){
+				$("img").remove(".sb");
+			    n=$(this).index()-1;
+				console.log(n);
+				var op=$("<img src='img/shirt_"+n+"_big.png'/>");
+				var op1=$("<img src='img/shirt_"+n+"_big.png'/>");
+				op.attr("class","sb");
+				op1.attr("class","sb");
+				$(".obox").append(op);
+				$(".obox1").append(op1);
+				
+			})
+		})
+	</script>
+	<body>
+		<div class="obox"><img class="sb" src="img/shirt_1_big.png"/><img src="img/star.png" class="zz"/></div>
+		<div class="obox1"><img class="sb" src="img/shirt_1_big.png"/></div>
+		<div class="box box1"><img src="img/shirt_1.png"/></div>
+		<div class="box box2"><img src="img/shirt_2.png"/></div>
+		<div class="box box3"><img src="img/shirt_3.png"/></div>
+		<div class="box box4"><img src="img/shirt_4.png"/></div>
+	</body>
+</html>
